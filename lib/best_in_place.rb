@@ -1,32 +1,12 @@
-require 'rails/railtie'
-require 'action_view/railtie'
-require 'action_controller/railtie'
+require "best_in_place/check_version"
+require "best_in_place/utils"
+require "best_in_place/helper"
+require "best_in_place/engine"
+require "best_in_place/railtie"
+require "best_in_place/controller_extensions"
+require "best_in_place/display_methods"
+require "action_view"
 
 module BestInPlace
-  def self.configure
-    @configuration ||= Configuration.new
-    yield @configuration if block_given?
-  end
-
-  def self.method_missing(method_name, *args, &block)
-    @configuration.respond_to?(method_name) ?
-        @configuration.send(method_name, *args, &block) : super
-  end
-
-  class Configuration
-    attr_accessor :container
-
-    def initialize
-      @container = :span
-    end
-  end
-
-  configure
+  autoload :TestHelpers, "best_in_place/test_helpers"
 end
-
-require 'best_in_place/engine'
-require 'best_in_place/utils'
-require 'best_in_place/helper'
-require 'best_in_place/railtie'
-require 'best_in_place/controller_extensions'
-require 'best_in_place/display_methods'

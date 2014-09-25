@@ -1,5 +1,6 @@
 module BestInPlace
   module TestHelpers
+    
     include ActionView::Helpers::JavaScriptHelper
 
     def bip_area(model, attr, new_value)

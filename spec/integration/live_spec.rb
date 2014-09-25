@@ -1,4 +1,5 @@
 # encoding: utf-8
+require "spec_helper"
 
 describe "Monitor new fields", :js => true do
   before do
@@ -21,19 +22,19 @@ describe "Monitor new fields", :js => true do
     sleep(1) #give time to the ajax request to work
 
     within("#email") do
-      expect(page).to have_content("lucianapoli@gmail")
+      page.should have_content("lucianapoli@gmail")
     end
 
     bip_text @user, :email, "new@email.com"
 
     within("#email") do
-      expect(page).to have_content("new@email.com")
+      page.should have_content("new@email.com")
     end
 
     bip_text @user, :email, "new_two@email.com"
 
     within("#email") do
-      expect(page).to have_content("new_two@email.com")
+      page.should have_content("new_two@email.com")
     end
   end
 end
