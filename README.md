@@ -1,3 +1,13 @@
+This is a fork of version 2.1.0, you can install it like:
+ 
+ ````
+ gem "best_in_place", github: 'RepairShopr/best_in_place'
+
+ ````
+ All we changed was made it so 'blur' has no affect, if you open an editor, and need to click away, or switch tabs to copy something, etc - the edit form will just sit there waiting for you. (Like it probably should have by default)
+ 
+ 
+
 # Best In Place
 [![Build Status](https://secure.travis-ci.org/bernat/best_in_place.png)](http://travis-ci.org/bernat/best_in_place)
 **The Unobtrusive in Place editing solution**
